@@ -25,6 +25,7 @@ body {
     rgba(30, 37, 77, 1) 100%
   );
   color: aliceblue;
+  padding: 20px;
 }
 
 .app {

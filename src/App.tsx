@@ -1,5 +1,5 @@
 import { useFetch } from './hooks/useFetch';
-import { Button } from './components';
+import { Button, ChildrenButton, CustomButton } from './components';
 
 const url = 'https://api.escuelajs.co/api/v1/products';
 
@@ -24,6 +24,11 @@ function App() {
         label="My Button"
         parentMethod={handleClick}
       />
+      <CustomButton parentMethod={handleClick}>
+        <ChildrenButton>
+          <div>My Custom button</div>
+        </ChildrenButton>
+      </CustomButton>
     </>
   );
 }
