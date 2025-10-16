@@ -1,5 +1,6 @@
 import type { ReactElement } from 'react';
 import './CustomButton.css';
+import { useGlobalContext } from '../../context/global.context';
 
 interface Props {
   children: ReactElement;
@@ -11,14 +12,26 @@ interface ChildrenProps {
 }
 
 export const ChildrenButton = ({ children }: ChildrenProps) => {
-  return <>{children}</>;
+  const { value } = useGlobalContext();
+  return (
+    <>
+      {value}
+      {children}
+    </>
+  );
 };
 
 export const CustomButton = ({ children, parentMethod }: Props) => {
+  const { setValue } = useGlobalContext();
+  const handleClick = () => {
+    setValue(10);
+    parentMethod();
+  };
+
   return (
     <button
       className="button"
-      onClick={parentMethod}
+      onClick={handleClick}
     >
       {children}
     </button>

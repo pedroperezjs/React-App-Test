@@ -1,5 +1,6 @@
 import { useFetch } from './hooks/useFetch';
 import { Button, ChildrenButton, CustomButton } from './components';
+import { GlobalProvider } from './context/global.context';
 
 const url = 'https://api.escuelajs.co/api/v1/products';
 
@@ -19,7 +20,7 @@ function App() {
   }
 
   return (
-    <>
+    <GlobalProvider>
       <Button
         label="My Button"
         parentMethod={handleClick}
@@ -29,7 +30,7 @@ function App() {
           <div>My Custom button</div>
         </ChildrenButton>
       </CustomButton>
-    </>
+    </GlobalProvider>
   );
 }
 
